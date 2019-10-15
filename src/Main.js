@@ -17,7 +17,7 @@ class Main extends Component {
     return (
       <div className='Mainpage'>
         <header className="header">
-          <Link path='/'>
+          <Link to='/'>
             <h1>Noteful</h1>
           </Link>
         </header>

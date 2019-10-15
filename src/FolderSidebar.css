@@ -4,7 +4,9 @@
   padding: 0px;
 }
 
-
+.highlight {
+  color: red
+}
 
 .folder-li {
   border-style: solid;

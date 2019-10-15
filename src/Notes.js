@@ -6,7 +6,6 @@ class Notes extends Component {
   render() {
     return (
       <ul className="notes-list">
-        {console.log(this.props.notes)}
         {this.props.notes.map( (note, index) => {
           let dateModified = (new Date(note.modified)).toString();
           return (
