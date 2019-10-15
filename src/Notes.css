@@ -11,6 +11,12 @@
   padding: 2%;
   text-align: left;
 }
+
+.delete-button {
+  margin-top: 1%;
+  margin-bottom: 1%
+}
+
 .note-title {
   text-decoration: none
 }

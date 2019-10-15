@@ -1,14 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import STORE from './dummy-store'
-import FolderSidebar from './FolderSidebar'
+import BackButton from './BackButton'
 import Notes from './Notes'
 
-export default function FolderFilterFunction(props) {
-  const folder = STORE.notes.filter(note => 
-    note.folderId === props.match.params.folderId
+export default function NoteFilterFunction(props) {
+  const thisNote = STORE.notes.filter(note => 
+    note.id === props.match.params.noteId
   )
-  console.log(props.match.params.folderId)
+  console.log(thisNote[0].folderId)
   return (
     <div className='Folder'>
       <header className="header">
@@ -19,10 +19,10 @@ export default function FolderFilterFunction(props) {
 
       <div className="container">
         <div className='sidebar'>
-          <FolderSidebar folders={STORE.folders} activeFolderId={props.match.params.folderId}/>
+          <BackButton folders={STORE.folders} activeFolderId={thisNote[0].folderId} goBack={props.goBack}/>
         </div>
         <main className='main'>
-          <Notes notes={folder} />
+          <Notes notes={thisNote} filter={true}/>
         </main>
       </div>
   </div>

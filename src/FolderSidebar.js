@@ -8,7 +8,7 @@ class FolderSidebar extends Component {
       <ul className="folder-list">
         {this.props.folders.map( (folder, index) => {
           return (
-            <li key={folder.id} className={'folder-li' + (folder.id===this.props.activeFolderId ? ' highlight' : ' no-highlight')}>
+            <li key={folder.id} className={'folder-li' + (folder.id===this.props.activeFolderId ? ' highlight' : ' regular')}>
               <Link to={`/folder/${folder.id}`}>
                 <h2 className="folder-title">{folder.name}</h2>
               </Link>

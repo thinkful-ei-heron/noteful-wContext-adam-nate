@@ -5,9 +5,12 @@
 }
 
 .highlight {
-  color: red
+  background-color: pink;
 }
 
+.no-highlight {
+  display: none
+}
 .folder-li {
   border-style: solid;
   border-width: 2px;

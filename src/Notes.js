@@ -13,8 +13,9 @@ class Notes extends Component {
               <Link to={`/note/${note.id}`}>
                 <h2 className="note-title">{note.name}</h2>
               </Link>
-              <p>Modified on {dateModified}</p>
-              <button>Delete Note</button>
+              <p className="date-modified">Modified on {dateModified}</p>
+              {this.props.filter && <p className="note-content">{note.content}</p>}
+              <button className="delete-button" type="delete">Delete Note</button>
             </li>
           )
         })}
