@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -19,4 +23,22 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.header {
+  margin: 10px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 25%;
+}
+
+.main {
+  width: 75%;
 }

@@ -1,0 +1,14 @@
+.folder-list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.folder-li {
+  border-style: solid;
+  border-width: 2px;
+  margin: 5px;
+  padding: 5px;
+}
