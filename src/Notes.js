@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import './Notes.css';
+import NotefulContext from './notefulContext'
 
 class Notes extends Component {
+  static contextType = NotefulContext;
+  
   render() {
     return (
       <ul className="notes-list">
@@ -15,7 +18,7 @@ class Notes extends Component {
               </Link>
               <p className="date-modified">Modified on {dateModified}</p>
               {this.props.filter && <p className="note-content">{note.content}</p>}
-              <button className="delete-button" type="delete">Delete Note</button>
+              <button onClick={() => this.context.deleteNote(note.id)}className="delete-button" type="delete">Delete Note</button>
             </li>
           )
         })}

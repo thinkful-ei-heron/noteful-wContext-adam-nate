@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function BackButton(props) {
-  console.log('backButton')
   const { goBack } = props
   return (
     <ul className="folder-list">

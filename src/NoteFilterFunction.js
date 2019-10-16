@@ -1,14 +1,17 @@
-import React from 'react'
+import React from 'react' 
 import {Link} from 'react-router-dom'
-import STORE from './dummy-store'
 import BackButton from './BackButton'
 import Notes from './Notes'
+import NotefulContext from './notefulContext'
 
-export default function NoteFilterFunction(props) {
-  const thisNote = STORE.notes.filter(note => 
-    note.id === props.match.params.noteId
+class NoteFilterFunction extends React.Component {
+  static contextType = NotefulContext;
+
+  render() {
+  const thisNote = this.context.notes.filter(note => 
+    note.id === this.props.match.params.noteId
   )
-  console.log(thisNote[0].folderId)
+  
   return (
     <div className='Folder'>
       <header className="header">
@@ -19,7 +22,7 @@ export default function NoteFilterFunction(props) {
 
       <div className="container">
         <div className='sidebar'>
-          <BackButton folders={STORE.folders} activeFolderId={thisNote[0].folderId} goBack={props.goBack}/>
+          <BackButton folders={this.context.folders} activeFolderId={thisNote[0].folderId} goBack={this.props.goBack}/>
         </div>
         <main className='main'>
           <Notes notes={thisNote} filter={true}/>
@@ -28,4 +31,7 @@ export default function NoteFilterFunction(props) {
   </div>
 
   )
+  }
 }
+
+export default NoteFilterFunction;

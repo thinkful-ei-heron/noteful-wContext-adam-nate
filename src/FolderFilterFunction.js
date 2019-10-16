@@ -1,14 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import STORE from './dummy-store'
 import FolderSidebar from './FolderSidebar'
 import Notes from './Notes'
+import NotefulContext from './notefulContext'
 
-export default function FolderFilterFunction(props) {
-  const folder = STORE.notes.filter(note => 
-    note.folderId === props.match.params.folderId
+class FolderFilterFunction extends React.Component {
+  static contextType = NotefulContext;
+  
+  render() {
+  const folder = this.context.notes.filter(note => 
+    note.folderId === this.props.match.params.folderId
   )
-  console.log(props.match.params.folderId)
   return (
     <div className='Folder'>
       <header className="header">
@@ -19,7 +21,7 @@ export default function FolderFilterFunction(props) {
 
       <div className="container">
         <div className='sidebar'>
-          <FolderSidebar folders={STORE.folders} activeFolderId={props.match.params.folderId}/>
+          <FolderSidebar folders={this.context.folders} activeFolderId={this.props.match.params.folderId}/>
         </div>
         <main className='main'>
           <Notes notes={folder} />
@@ -28,4 +30,7 @@ export default function FolderFilterFunction(props) {
   </div>
 
   )
+  }
 }
+
+export default FolderFilterFunction;

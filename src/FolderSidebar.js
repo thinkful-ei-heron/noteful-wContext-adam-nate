@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import './FolderSidebar.css';
+import NotefulContext from './notefulContext'
 
 class FolderSidebar extends Component {
+  static contextType = NotefulContext;
+
   render() {
     return (
       <ul className="folder-list">
-        {this.props.folders.map( (folder, index) => {
+        {this.context.folders.map( (folder, index) => {
+         
           return (
             <li key={folder.id} className={'folder-li' + (folder.id===this.props.activeFolderId ? ' highlight' : ' regular')}>
               <Link to={`/folder/${folder.id}`}>
@@ -21,4 +25,4 @@ class FolderSidebar extends Component {
   }
 }
 
-export default FolderSidebar
+export default FolderSidebar;

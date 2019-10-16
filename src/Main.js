@@ -1,19 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import STORE from './dummy-store';
+
 import Notes from './Notes';
 import FolderSidebar from './FolderSidebar'
+import NotefulContext from './notefulContext'
 
-class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      folders: STORE.folders,
-      notes: STORE.notes
-    };
-  }
+
+class Main extends React.Component {
+  static contextType = NotefulContext
 
   render() {
+    
     return (
       <div className='Mainpage'>
         <header className="header">
@@ -24,10 +21,10 @@ class Main extends Component {
 
         <div className="container">
           <div className='sidebar'>
-            <FolderSidebar folders={this.state.folders}/>
+            <FolderSidebar />
           </div>
           <main className='main'>
-            <Notes notes={this.state.notes} />
+            <Notes notes={this.context}/>
           </main>
         </div>
       </div>
