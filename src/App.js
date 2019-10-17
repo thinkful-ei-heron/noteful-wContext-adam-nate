@@ -23,8 +23,7 @@ class App extends Component {
   getFolders = () => {
     return fetch('http://localhost:9090/folders')
       .then(res => res.json())
-      .then(res => {
-        this.setState({
+      .then(res => { this.setState({
           folders: res
         })
       })
@@ -54,7 +53,7 @@ class App extends Component {
       method: 'DELETE',
       headers: {
         'content-type' : 'application/json'
-      }
+      }})
       .then(res => {
         if (!res.ok ){
           return res.json().then(error => {
@@ -69,15 +68,17 @@ class App extends Component {
       .catch(error => {
         console.error(error)
       })
-    })
   }
 
   render() {
     const contextValue = {
       folders: this.state.folders,
       notes: this.state.notes,
-      deleteNote: this.deleteFromState
+      deleteNote: this.deleteNoteFetch
+                  /* this.deleteFromState] How do I render at the same time so i dont 
+                    have to refresh to view result?*/
     }
+    console.log(contextValue);
     
     return (
       <NotefulContext.Provider value={contextValue}>

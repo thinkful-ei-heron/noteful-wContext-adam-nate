@@ -9,7 +9,7 @@ class Notes extends Component {
   render() {
     return (
       <ul className="notes-list">
-        {this.props.notes.map( (note, index) => {
+        {this.context.notes.map( (note, index) => {
           let dateModified = (new Date(note.modified)).toString();
           return (
             <li key={note.id} className="note">
